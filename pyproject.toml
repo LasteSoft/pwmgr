@@ -1,0 +1,33 @@
+[project]
+name = "pwmgr"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "gx1285", email = "contact@gx1285.com" },
+    { name = "aroko001", email = "epidural-guy-rise@duck.com" }
+]
+dependencies = [
+    "ruff>=0.5.7",
+    "flet>=0.23.2",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+license = {file = "LICENSE"}
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.rye.scripts]
+format = { cmd = "ruff format ./" }
+run = { cmd = "flet run -d src/__init__.py" }
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pwmgr"]
